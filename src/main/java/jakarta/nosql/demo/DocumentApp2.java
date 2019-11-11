@@ -1,15 +1,13 @@
 package jakarta.nosql.demo;
 
-import jakarta.nosql.document.DocumentDeleteQuery;
+import jakarta.nosql.mapping.PreparedStatement;
 import jakarta.nosql.mapping.document.DocumentTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Optional;
 
-import static jakarta.nosql.document.DocumentDeleteQuery.delete;
-
-public class DocumentApp {
+public class DocumentApp2 {
 
     public static void main(String[] args) {
 
@@ -22,16 +20,19 @@ public class DocumentApp {
                             .get();
 
             template.insert(diana);
-            final Optional<God> god = template.find(God.class, 1L);
-            System.out.println("query : " + god);
 
-            DocumentDeleteQuery deleteQuery = delete().from("God")
-                    .where("_id").eq(1L).build();
+            Optional<God> god = template.singleResult("select * from God where _id = 1");
+            System.out.println("Plain query text : " + god);
 
-            template.delete(deleteQuery);
+            PreparedStatement prepare = template.prepare("select * from God where _id = @id");
+            prepare.bind("id", 1L);
 
-            System.out.println("query again: " +
-                    template.find(God.class, 1L));
+            System.out.println("Query by prepare query" + prepare.getSingleResult());
+
+
+            template.query("delete from God where _id = 1");
+
+            System.out.println("query : " + template.find(God.class, 1L));
         }
 
         System.exit(0);

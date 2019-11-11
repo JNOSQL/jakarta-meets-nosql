@@ -8,9 +8,10 @@ import java.util.List;
 
 public interface GodRepository extends Repository<God, Long> {
 
-
     @Query("select * from God where name = @name")
     List<God> query(@Param("name") String name);
 
     List<God> findByName(String name);
+
+
 }

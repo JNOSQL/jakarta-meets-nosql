@@ -1,19 +1,13 @@
 package jakarta.nosql.demo;
 
-import jakarta.nosql.column.ColumnDeleteQuery;
+import jakarta.nosql.mapping.PreparedStatement;
 import jakarta.nosql.mapping.column.ColumnTemplate;
-import jakarta.nosql.mapping.keyvalue.KeyValueTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
-import java.time.Duration;
-import java.util.Collections;
 import java.util.Optional;
-import java.util.concurrent.TimeUnit;
 
-import static jakarta.nosql.column.ColumnDeleteQuery.delete;
-
-public class ColumnApp {
+public class ColumnApp3 {
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -28,16 +22,13 @@ public class ColumnApp {
 
             template.insert(diana);
 
-            final Optional<God> god = template.find(God.class, 1L);
-            System.out.println("query : " + god);
+            Optional<God> god = template.singleResult("select * from God where _id = 1");
+            System.out.println("Plain query text : " + god);
 
-            ColumnDeleteQuery deleteQuery = delete().from("God")
-                    .where("_id").eq(1L).build();
+            PreparedStatement prepare = template.prepare("select * from God where _id = @id");
+            prepare.bind("id", 1L);
 
-            template.delete(deleteQuery);
-
-            System.out.println("query again: " +
-                    template.find(God.class, 1L));
+            System.out.println("Query by prepare query" + prepare.getSingleResult());
         }
         System.exit(0);
     }

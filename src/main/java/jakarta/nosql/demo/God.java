@@ -27,6 +27,10 @@ public class God {
     public God() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "God{" +

@@ -5,11 +5,10 @@ import jakarta.nosql.mapping.keyvalue.KeyValueTemplate;
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.time.Duration;
-import java.util.Collections;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
-public class KeyValueApp {
+public class KeyValueApp2 {
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -22,12 +21,11 @@ public class KeyValueApp {
                     container.select(KeyValueTemplate.class)
                             .get();
 
-            template.put(diana);
+            template.put(diana, Duration.ofSeconds(1L));
 
             final Optional<God> god = template.get(1L, God.class);
             System.out.println("query : " + god);
-            template.delete(1L);
-
+            TimeUnit.SECONDS.sleep(2L);
             System.out.println("query again: " +
                     template.get(1L, God.class));
 

@@ -1,15 +1,15 @@
 package jakarta.nosql.demo;
 
+import jakarta.nosql.mapping.PreparedStatement;
 import jakarta.nosql.mapping.keyvalue.KeyValueTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.time.Duration;
-import java.util.Collections;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
-public class KeyValueApp {
+public class KeyValueApp3 {
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -22,14 +22,13 @@ public class KeyValueApp {
                     container.select(KeyValueTemplate.class)
                             .get();
 
-            template.put(diana);
-
-            final Optional<God> god = template.get(1L, God.class);
-            System.out.println("query : " + god);
-            template.delete(1L);
-
-            System.out.println("query again: " +
-                    template.get(1L, God.class));
+            template.put(diana, Duration.ofSeconds(1L));
+            Optional<God> result = template.getSingleResult("get 1", God.class);
+            System.out.println("Query by plain text: " + result);
+            PreparedStatement prepare = template.prepare("get @id", God.class);
+            prepare.bind("id", 1L);
+            System.out.println("Query by prepare query");
+            prepare.getSingleResult().ifPresent(System.out::println);
 
         }
 
