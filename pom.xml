@@ -71,7 +71,7 @@
             <version>${jakarta.nosql.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.jnosql..diana</groupId>
+            <groupId>org.eclipse.jnosql.diana</groupId>
             <artifactId>redis-driver</artifactId>
             <version>${jakarta.nosql.version}</version>
         </dependency>
