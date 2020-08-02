@@ -35,8 +35,6 @@ services:
     ports:
       - 7474:7474
       - 7687:7687
-    volumes:
-      - "$HOME/neo4j/data:/data"
 
 networks:
   nosql:
