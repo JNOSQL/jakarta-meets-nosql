@@ -9,14 +9,14 @@
     <version>1.0-SNAPSHOT</version>
 
     <name>jakarta-nosql-demo</name>
-    <url>http://www.example.com</url>
+    <url>http://www.jnosql.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <weld.se.core.version>3.1.4.Final</weld.se.core.version>
-        <jakarta.nosql.version>1.0.0-b2</jakarta.nosql.version>
+        <weld.se.core.version>4.0.1.SP1</weld.se.core.version>
+        <jakarta.nosql.version>1.0.0-b3</jakarta.nosql.version>
     </properties>
 
     <dependencies>
@@ -30,48 +30,48 @@
         <dependency>
             <groupId>org.eclipse</groupId>
             <artifactId>yasson</artifactId>
-            <version>1.0.7</version>
+            <version>2.0.2</version>
         </dependency>
         <!--Eclipse MicroProfile Configuration-->
         <dependency>
             <groupId>io.smallrye.config</groupId>
             <artifactId>smallrye-config</artifactId>
-            <version>1.8.5</version>
+            <version>2.3.0</version>
         </dependency>
         <!--mapper dependency-->
         <dependency>
-            <groupId>org.eclipse.jnosql.artemis</groupId>
-            <artifactId>artemis-document</artifactId>
+            <groupId>org.eclipse.jnosql.mapping</groupId>
+            <artifactId>mapping-document</artifactId>
             <version>${jakarta.nosql.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.jnosql.artemis</groupId>
-            <artifactId>artemis-key-value</artifactId>
+            <groupId>org.eclipse.jnosql.mapping</groupId>
+            <artifactId>mapping-key-value</artifactId>
             <version>${jakarta.nosql.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.jnosql.artemis</groupId>
-            <artifactId>artemis-column</artifactId>
+            <groupId>org.eclipse.jnosql.mapping</groupId>
+            <artifactId>mapping-column</artifactId>
             <version>${jakarta.nosql.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.jnosql.artemis</groupId>
-            <artifactId>artemis-graph</artifactId>
+            <groupId>org.eclipse.jnosql.mapping</groupId>
+            <artifactId>mapping-graph</artifactId>
             <version>${jakarta.nosql.version}</version>
         </dependency>
         <!--communication-->
         <dependency>
-            <groupId>org.eclipse.jnosql.diana</groupId>
+            <groupId>org.eclipse.jnosql.communication</groupId>
             <artifactId>mongodb-driver</artifactId>
             <version>${jakarta.nosql.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.jnosql.diana</groupId>
+            <groupId>org.eclipse.jnosql.communication</groupId>
             <artifactId>cassandra-driver</artifactId>
             <version>${jakarta.nosql.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.jnosql.diana</groupId>
+            <groupId>org.eclipse.jnosql.communication</groupId>
             <artifactId>redis-driver</artifactId>
             <version>${jakarta.nosql.version}</version>
         </dependency>
@@ -80,20 +80,20 @@
         <dependency>
             <groupId>org.apache.tinkerpop</groupId>
             <artifactId>gremlin-groovy</artifactId>
-            <version>3.4.7</version>
+            <version>3.5.0</version>
         </dependency>
         <dependency>
             <groupId>com.steelbridgelabs.oss</groupId>
             <artifactId>neo4j-gremlin-bolt</artifactId>
-            <version>0.4.2</version>
+            <version>0.4.6</version>
         </dependency>
         <dependency>
             <groupId>org.neo4j.driver</groupId>
             <artifactId>neo4j-java-driver</artifactId>
-            <version>4.1.1</version>
+            <version>4.3.0-rc01</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.jnosql.artemis</groupId>
+            <groupId>org.eclipse.jnosql.mapping</groupId>
             <artifactId>graph-connections</artifactId>
             <version>${jakarta.nosql.version}</version>
         </dependency>
