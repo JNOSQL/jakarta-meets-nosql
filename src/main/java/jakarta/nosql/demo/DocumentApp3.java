@@ -16,9 +16,10 @@
 
 package jakarta.nosql.demo;
 
-import jakarta.enterprise.inject.se.SeContainer;
-import jakarta.enterprise.inject.se.SeContainerInitializer;
+
 import org.eclipse.jnosql.mapping.DatabaseQualifier;
+import javax.enterprise.inject.se.SeContainer;
+import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Optional;
 
 public class DocumentApp3 {

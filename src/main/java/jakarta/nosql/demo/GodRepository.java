@@ -16,6 +16,7 @@
 
 package jakarta.nosql.demo;
 
+
 import jakarta.nosql.mapping.Param;
 import jakarta.nosql.mapping.Query;
 import jakarta.nosql.mapping.Repository;
