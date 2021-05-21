@@ -18,7 +18,6 @@ package jakarta.nosql.demo;
 
 
 import jakarta.nosql.mapping.keyvalue.KeyValueTemplate;
-
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.time.Duration;

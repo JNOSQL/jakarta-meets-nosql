@@ -19,7 +19,6 @@ package jakarta.nosql.demo.producer;
 
 import jakarta.nosql.column.ColumnFamilyManager;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
