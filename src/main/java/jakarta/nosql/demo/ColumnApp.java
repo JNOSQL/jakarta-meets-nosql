@@ -16,10 +16,12 @@
 
 package jakarta.nosql.demo;
 
-import jakarta.enterprise.inject.se.SeContainer;
-import jakarta.enterprise.inject.se.SeContainerInitializer;
+
 import jakarta.nosql.column.ColumnDeleteQuery;
 import jakarta.nosql.mapping.column.ColumnTemplate;
+
+import javax.enterprise.inject.se.SeContainer;
+import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Optional;
 import static jakarta.nosql.column.ColumnDeleteQuery.delete;
 
