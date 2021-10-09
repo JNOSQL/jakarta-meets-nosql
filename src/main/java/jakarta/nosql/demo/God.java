@@ -35,7 +35,7 @@ public class God {
     @Column
     private String power;
 
-    private God(Long id, String name, String power) {
+    public God(Long id, String name, String power) {
         this.id = id;
         this.name = name;
         this.power = power;

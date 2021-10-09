@@ -38,7 +38,7 @@ public class GraphApp {
                     .has("name", "Diana")
                     .<God>next()
                     .orElseGet(() ->
-                            template.insert(new God(null, "Diana", "Hunt")));
+                            template.insert(God.of( "Diana", "Hunt")));
 
             System.out.println("query : " + diana);
 
