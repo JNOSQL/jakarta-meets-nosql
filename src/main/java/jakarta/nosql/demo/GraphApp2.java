@@ -37,21 +37,21 @@ public class GraphApp2 {
                     .has("name", "Diana")
                     .<God>next()
                     .orElseGet(() ->
-                            template.insert(new God(null, "Diana", "Hunt")));
+                            template.insert(God.of("Diana", "Hunt")));
 
             God apollo = template.getTraversalVertex()
                     .hasLabel(God.class)
                     .has("name", "Apollo")
                     .<God>next()
                     .orElseGet(() ->
-                            template.insert(new God(null, "Apollo", "Sun")));
+                            template.insert(God.of("Apollo", "Sun")));
 
             God zeus = template.getTraversalVertex()
                     .hasLabel(God.class)
                     .has("name", "Zeus")
                     .<God>next()
                     .orElseGet(() ->
-                            template.insert(new God(null, "Zeus", "Thunder")));
+                            template.insert(God.of("Zeus", "Thunder")));
 
             template.edge(diana, "brother", apollo);
             template.edge(apollo, "brother", diana);
