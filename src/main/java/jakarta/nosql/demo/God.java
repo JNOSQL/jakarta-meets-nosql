@@ -21,6 +21,8 @@ import jakarta.nosql.mapping.Column;
 import jakarta.nosql.mapping.Entity;
 import jakarta.nosql.mapping.Id;
 
+import java.util.Objects;
+
 @Entity
 public class God {
 
@@ -33,7 +35,7 @@ public class God {
     @Column
     private String power;
 
-    public God(Long id, String name, String power) {
+    private God(Long id, String name, String power) {
         this.id = id;
         this.name = name;
         this.power = power;
@@ -53,5 +55,11 @@ public class God {
                 ", name='" + name + '\'' +
                 ", power=" + power +
                 '}';
+    }
+
+    public static God of(String name, String power) {
+        Objects.requireNonNull(name, "name is required");
+        Objects.requireNonNull(power, "power is required");
+        return new God(null, name, power);
     }
 }
