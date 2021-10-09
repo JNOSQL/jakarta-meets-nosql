@@ -14,7 +14,7 @@ services:
     networks:
       - nosql
     environment:
-      JVM_OPTS: -Xms512m -Xmx512m
+      JVM_OPTS: -Xms256m -Xmx512m
     ports:
       - 9042:9042
 
