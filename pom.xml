@@ -15,7 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <weld.se.core.version>3.1.8</weld.se.core.version>
+        <weld.se.core.version>3.1.8.Final</weld.se.core.version>
         <jakarta.nosql.version>1.0.0-b3</jakarta.nosql.version>
     </properties>
 
