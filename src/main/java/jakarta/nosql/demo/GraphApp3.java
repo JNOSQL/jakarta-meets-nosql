@@ -66,9 +66,9 @@ public class GraphApp3 {
             System.out.println("The root");
             tree.getRoots().forEach(System.out::println);
 
-//            template.delete(diana.getId());
-//            template.delete(zeus.getId());
-//            template.delete(apollo.getId());
+            template.delete(diana.getId());
+            template.delete(zeus.getId());
+            template.delete(apollo.getId());
         }
         System.exit(0);
     }
