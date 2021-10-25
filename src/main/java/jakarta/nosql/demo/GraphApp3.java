@@ -17,6 +17,7 @@
 package jakarta.nosql.demo;
 
 
+import org.eclipse.jnosql.mapping.graph.EntityTree;
 import org.eclipse.jnosql.mapping.graph.GraphTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
@@ -59,9 +60,15 @@ public class GraphApp3 {
             template.edge(zeus, "father", apollo);
             template.edge(zeus, "father", diana);
 
-            template.delete(diana.getId());
-            template.delete(zeus.getId());
-            template.delete(apollo.getId());
+            EntityTree tree = template.getTraversalVertex().out("father").tree();
+            System.out.println("The leaf");
+            tree.getLeaf().forEach(System.out::println);
+            System.out.println("The root");
+            tree.getRoots().forEach(System.out::println);
+
+//            template.delete(diana.getId());
+//            template.delete(zeus.getId());
+//            template.delete(apollo.getId());
         }
         System.exit(0);
     }
